@@ -3,7 +3,37 @@
 // ex. reverseString('hello') === 'olleh'
 
 function reverseString(str) {
-  return "Let's Start";
+  //   long version
+  const strArray = str.split("");
+  strArray.reverse();
+  return strArray.join("");
+
+  // shorter version
+  return str
+    .split("")
+    .reverse()
+    .join("");
+
+  //no reverse version
+  let reverseStr = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reverseStr = reverseStr + str[i];
+  }
+  return reverseStr;
+
+  //more modern loop
+  let revString = "";
+  for (char of str) {
+    revString = char + revString;
+  }
+  return revString;
+
+  //es6 arrow for each
+  let revString = "";
+  str.split("").forEach(char => (revString = char + revString));
+
+  //reduce
+  return str.split("").reduce((revString, char) => char + revString, "");
 }
 
 // CHALLENGE 2: VALIDATE A PALINDROME
